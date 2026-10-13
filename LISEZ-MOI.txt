@@ -1,0 +1,3 @@
+Version V8 : nom du jeu corrigé en « Qui veut sauver des neurones ? » dans le titre du site, les en-têtes et l’écran du générique.
+Conserve les ajustements de la V7.
+Sur GitHub, remplacer uniquement index.html à la racine du dépôt.
