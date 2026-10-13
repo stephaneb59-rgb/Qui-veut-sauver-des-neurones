@@ -1,0 +1,132 @@
+[
+  {
+    "q": "Que signifie l’acronyme AVC ?",
+    "options": [
+      "Accident Vasculaire Cérébral",
+      "Accident Ventriculaire Cérébral",
+      "Anomalie Vasculaire Cardiaque",
+      "Affection Vasculaire Chronique"
+    ],
+    "correct": "A"
+  },
+  {
+    "q": "Quel organe est touché lors d’un AVC ?",
+    "options": [
+      "Le coeur",
+      "Les poumons",
+      "Le cerveau",
+      "Les reins"
+    ],
+    "correct": "C"
+  },
+  {
+    "q": "Quel signe doit faire penser à un AVC ?",
+    "options": [
+      "Mal au dos",
+      "Douleurs thoraciques",
+      "Déformation de la bouche",
+      "Perte d’appétit"
+    ],
+    "correct": "C"
+  },
+  {
+    "q": "Face à une suspicion d’AVC, quel numéro faut-il appeler en urgence ?",
+    "options": [
+      "17",
+      "15",
+      "18",
+      "118 218"
+    ],
+    "correct": "B"
+  },
+  {
+    "q": "Une personne a soudainement du mal à parler et son visage  se déforme d’un coté, que faites-vous ?",
+    "options": [
+      "Vous lui donnez un verre d’eau",
+      "Vous attendez quelques minutes pour voir si ca passe",
+      "Vous appelez immédiatement le 15",
+      "Vous lui proposez de rentrer chez elle se reposer"
+    ],
+    "correct": "C"
+  },
+  {
+    "q": "Pourquoi faut-il agir rapidement face à un AVC ?",
+    "options": [
+      "Parce que chaque minute compte",
+      "Pour éviter d’avoir de la fièvre",
+      "Parce que l’AVC disparaît en 10 minutes",
+      "Parce que le cerveau ne fonctionne plus la nuit"
+    ],
+    "correct": "A"
+  },
+  {
+    "q": "A quel âge peut survenir un AVC ?",
+    "options": [
+      "A tout âge",
+      "Jamais avant 40 ans",
+      "Jamais avant 60 ans",
+      "Jamais avant 80 ans"
+    ],
+    "correct": "A"
+  },
+  {
+    "q": "Un AVC peut-il être mortel ?",
+    "options": [
+      "Oui",
+      "Seulement chez les personnes âgées",
+      "Non, s’il n’y a pas de douleur",
+      "Jamais avant 80 ans"
+    ],
+    "correct": "A"
+  },
+  {
+    "q": "Quelle pathologie n’augmente pas le risque d’AVC ?",
+    "options": [
+      "Hypertension artérielle",
+      "Le tabac",
+      "L’alcool",
+      "L’arthrose"
+    ],
+    "correct": "D"
+  },
+  {
+    "q": "Parmi ces situations, laquelle doit faire appeler immédiatement le 15 ?",
+    "options": [
+      "Une douleur au dos depuis trois jours",
+      "Une fatigue après une journée de travail",
+      "Une paralysie brutale d’un bras",
+      "Un rhume"
+    ],
+    "correct": "C"
+  },
+  {
+    "q": "Un AVC fait-il forcément mal ?",
+    "options": [
+      "Oui, toujours",
+      "Seulement chez les hommes",
+      "Non, pas forcément",
+      "Seulement la nuit"
+    ],
+    "correct": "C"
+  },
+  {
+    "q": "Si les symptômes d’un AVC disparaissent après quelques minutes : Faut-il quand même consulter ?",
+    "options": [
+      "Non, c’est terminé",
+      "Seulement si ça recommence",
+      "Oui, en urgence",
+      "Le lendemain suffit"
+    ],
+    "correct": "C"
+  },
+  {
+    "q": "En France, un AVC se produit toutes les…",
+    "options": [
+      "semaines",
+      "15 secondes",
+      "4 minutes",
+      "nuits"
+    ],
+    "correct": "C"
+  }
+]
