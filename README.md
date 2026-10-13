@@ -14,3 +14,4 @@ Application web mobile dérivée du PowerPoint V10 fourni, sans modifier ce Powe
 
 ## Limites
 Ce jeu est une adaptation web, non une conversion des macros VBA. Les illustrations proviennent des diapositives, avec adaptation de la mise en page au mobile. La lecture automatique de sons sur mobile peut dépendre des autorisations du navigateur. Les fichiers audio et les images sont publiquement accessibles une fois le dépôt public.
+\n## Mise à jour V2 (sons et illustrations)\nLes sons de bonne/mauvaise réponse sont maintenant en MP3 pour une meilleure compatibilité mobile. Le bouton « 🔊 Son » permet de vérifier l'audio. Les 13 illustrations sont mises en cache hors ligne ; la première utilise le logo du jeu. Le générique démarre au clic sur « Commencer » et s'arrête à la réponse. Si l'ancien site persiste, fermer l'onglet et le rouvrir ou vider les données du site.\n

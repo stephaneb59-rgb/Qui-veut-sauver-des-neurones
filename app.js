@@ -6,7 +6,7 @@ const screens=["home","game","end"];
 let index=0,score=0,answered=false,used={public:false,phone:false,half:false},eliminated=[],seconds=30,interval=null,correctCount=0;
 const fmt=n=>new Intl.NumberFormat("fr-FR").format(n);
 function show(id){screens.forEach(x=>$(x).classList.toggle("hidden",x!==id));}
-function play(id){const a=$(id);if(!a)return;a.pause();a.currentTime=0;a.play().catch(()=>{});}
+function play(id){const a=$(id);if(!a)return;a.pause();a.currentTime=0;a.play().catch(err=>{console.warn("Audio non lu",id,err);});}
 function stop(id){const a=$(id);if(a){a.pause();a.currentTime=0;}}
 function ladder(){
  const parent=$("levels");parent.replaceChildren();
@@ -41,7 +41,7 @@ function choose(letter){
  if(answered||eliminated.includes(letter))return;
  answered=true;clearInterval(interval);
  const q=QUESTIONS[index],good=letter===q.correct;
- if(good){score++;correctCount++;play("correct-audio");}else{play("wrong-audio");}
+ stop("intro-audio");if(good){score++;correctCount++;play("correct-audio");}else{play("wrong-audio");}
  document.querySelectorAll(".choice").forEach(b=>{
   b.disabled=true;
   if(b.dataset.letter===q.correct)b.classList.add("correct");
@@ -76,9 +76,10 @@ function finish(){
 }
 function start(){
  clearInterval(interval);stop("intro-audio");stop("correct-audio");stop("wrong-audio");
- index=0;score=0;correctCount=0;answered=false;used={public:false,phone:false,half:false};render();
+ index=0;score=0;correctCount=0;answered=false;used={public:false,phone:false,half:false};render();play("intro-audio");
 }
 $("start").addEventListener("click",start);
+$("sound-test").addEventListener("click",()=>play("correct-audio"));
 $("restart").addEventListener("click",start);
 $("next").addEventListener("click",()=>{index++;render();});
 $("joker-public").addEventListener("click",()=>joker("public"));
