@@ -5,6 +5,19 @@
 #intro .hero h1{font-size:clamp(25px,3.7vw,40px);line-height:1.14;margin:10px 0;}
 #intro #skip-intro{font-size:12px;padding:8px 14px;border-width:1px;border-radius:12px;margin-top:12px;}
 @media(max-width:600px){#intro .home-logo{width:min(58vw,245px);height:min(58vw,245px)}#intro .hero h1{font-size:clamp(23px,6vw,32px)}#intro #skip-intro{font-size:11px;padding:7px 12px}}
+
+/* V9 : roue dominante sur les deux premiers écrans, autres écrans inchangés. */
+#home .hero,#intro .hero{max-width:850px;margin:1vh auto 12px;padding:12px 18px 18px;}
+#home .home-logo,#intro .home-logo{display:block;width:min(64vw,460px);height:min(53vh,460px);max-width:100%;object-fit:contain;border-radius:0;margin:0 auto 4px;}
+#home .hero h1,#intro .hero h1{font-size:clamp(22px,3.5vw,38px);line-height:1.1;margin:7px 0;}
+#home .hero p,#intro .hero p{font-size:clamp(12px,1.7vw,15px);margin:8px 0;}
+#home .primary{font-size:15px;padding:12px 21px;margin-top:9px;}
+#intro #skip-intro{font-size:11px;padding:7px 12px;margin-top:8px;}
+@media(max-width:600px){
+#home .hero,#intro .hero{padding:10px 10px 16px;margin:1vh auto 8px;}
+#home .home-logo,#intro .home-logo{width:min(85vw,420px);height:min(48vh,420px);}
+#home .hero h1,#intro .hero h1{font-size:clamp(22px,6vw,31px);}
+}
 </style></head>
 <body><main class="app">
 <header><div class="brand">🧠 <span>QUI VEUT SAUVER DES <strong>NEURONES ?</strong></span></div><div class="affiliation">Filière AVC Hauts-de-France</div></header>
@@ -160,7 +173,7 @@ const IMAGE_DATA = ["data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABJAAAAGQCAIAA
 const levels=[0,100,500,1000,2000,5000,10000,20000,50000,100000,250000,500000,1000000,2000000];
 const $=id=>document.getElementById(id);
 const screens=["home","intro","game","end"];
-let index=0,score=0,answered=false,used={public:false,phone:false,half:false},eliminated=[],seconds=30,interval=null,correctCount=0;
+let introTimeout=null;let index=0,score=0,answered=false,used={public:false,phone:false,half:false},eliminated=[],seconds=30,interval=null,correctCount=0;
 const fmt=n=>new Intl.NumberFormat("fr-FR").format(n);
 function show(id){screens.forEach(x=>$(x).classList.toggle("hidden",x!==id));}
 function play(id){const a=$(id);if(!a)return;$("audio-status").classList.add("hidden");a.pause();a.currentTime=0;a.play().catch(err=>{console.warn("Audio non lu",id,err);$("audio-status").classList.remove("hidden");});}
@@ -232,12 +245,13 @@ function finish(){
  show("end");play("intro-audio");
 }
 function start(){
+ clearTimeout(introTimeout);introTimeout=null;
  for(const id of ["correct-audio","wrong-audio"]){const a=$(id);a.load();}
  clearInterval(interval);stop("intro-audio");stop("correct-audio");stop("wrong-audio");
  index=0;score=0;correctCount=0;answered=false;used={public:false,phone:false,half:false};render();
 }
 function beginIntro(){
- clearInterval(interval);
+ clearTimeout(introTimeout);clearInterval(interval);
  stop("intro-audio");stop("correct-audio");stop("wrong-audio");
  $("intro-logo").src=document.querySelector("#home .home-logo").src;
  $("intro-error").classList.add("hidden");
@@ -245,6 +259,7 @@ function beginIntro(){
  const a=$("intro-audio");
  a.currentTime=0;
  a.play().catch(err=>{$("intro-error").classList.remove("hidden");console.warn("Générique non disponible",err);});
+ introTimeout=setTimeout(()=>{if(!$("intro").classList.contains("hidden"))start();},20000);
 }
 $("intro-audio").addEventListener("ended",()=>{if(!$("intro").classList.contains("hidden"))start();});
 $("intro-audio").addEventListener("error",()=>$("intro-error").classList.remove("hidden"));
@@ -256,6 +271,6 @@ $("next").addEventListener("click",()=>{index++;render();});
 $("joker-public").addEventListener("click",()=>joker("public"));
 $("joker-phone").addEventListener("click",()=>joker("phone"));
 $("joker-half").addEventListener("click",()=>joker("half"));
-window.addEventListener("pagehide",()=>clearInterval(interval));
+window.addEventListener("pagehide",()=>{clearInterval(interval);clearTimeout(introTimeout);});
 
 })();</script></body></html>
