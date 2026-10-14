@@ -48,6 +48,15 @@
 @media(max-width:380px){.app{padding-left:7px;padding-right:7px}.choice{font-size:12px;padding:8px 7px;min-height:65px}.choices{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.art{height:125px}.hero{padding:12px 8px}}
 @media(max-height:700px) and (max-width:700px){#home .home-logo,#intro .home-logo{height:34dvh!important}.art{height:17dvh}.choice{min-height:58px}.question{padding:8px}.jokers{margin:2px 0 4px}.joker{min-height:45px}}
 @media(prefers-reduced-motion:reduce){.intro-playing{animation:none}}
+
+/* V12 : tous les paliers visibles dans le cadre du smartphone, sans défilement horizontal. */
+@media (max-width: 650px) {
+ .playfield {min-width:0; width:100%;}
+ .ladder {box-sizing:border-box; min-width:0; max-width:100%; width:100%; overflow:hidden; padding:8px;}
+ .ladder #levels {display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; overflow:visible; padding:2px; width:100%; min-width:0;}
+ .ladder .level {box-sizing:border-box; min-width:0; width:100%; margin:0; padding:7px 2px; font-size:clamp(10px,2.9vw,12px); line-height:1.15; white-space:nowrap; text-align:center; border-radius:6px;}
+ .ladder .level.current {outline:1px solid #ffce59; outline-offset:-1px;}
+}
 </style></head>
 <body><main class="app">
 <header><div class="brand">🧠 <span>QUI VEUT SAUVER DES <strong>NEURONES ?</strong></span></div><div class="affiliation">Filière AVC Hauts-de-France</div></header>
